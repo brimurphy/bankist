@@ -1,4 +1,3 @@
-/*
 // LECTURES
 
 const currencies = new Map([
@@ -8,7 +7,7 @@ const currencies = new Map([
 ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
+/*
 /////////////////////////////////////////////////
 
 
@@ -117,7 +116,7 @@ Test data:
 § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 Hints: Use tools from all lectures in this section so far
 */
-
+/*
 const julia1 = [3, 5, 2, 12, 7];
 const julia2 = [9, 16, 6, 8, 3];
 const kate1 = [4, 1, 15, 8, 3];
@@ -149,3 +148,26 @@ const checkDogs = function (dogsJulia, dogsKate) {
 
 checkDogs(julia1, kate1);
 checkDogs(julia2, kate2);
+*/
+
+const euroToUsd = 1.1;
+const movementsUsd = movements.map(function (mov) {
+  return mov * euroToUsd;
+});
+console.log(movements);
+console.log(movementsUsd);
+
+const movementsUsdFor = [];
+for (const mov of movements) movementsUsdFor.push(mov * euroToUsd);
+console.log(movementsUsdFor);
+
+const arrow = movements.map(mov => mov * euroToUsd);
+console.log(arrow);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1} You ${mov > 0 ? 'deposited' : 'withdrew'} €${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
