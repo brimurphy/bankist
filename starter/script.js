@@ -94,5 +94,11 @@ const createUsernames = function (accs) {
 };
 // const user = 'Steven Thomas Williams'; // username = stw
 
-console.log(createUsernames(accounts));
-console.log(accounts);
+createUsernames(accounts);
+
+// Calculate and display balance of account
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `€${balance}`;
+};
+calcDisplayBalance(account1.movements);
