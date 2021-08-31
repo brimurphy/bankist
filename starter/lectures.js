@@ -149,7 +149,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 checkDogs(julia1, kate1);
 checkDogs(julia2, kate2);
 */
-
+/*
 const euroToUsd = 1.1;
 const movementsUsd = movements.map(function (mov) {
   return mov * euroToUsd;
@@ -166,8 +166,23 @@ console.log(arrow);
 
 const movementsDescriptions = movements.map(
   (mov, i) =>
-    `Movement ${i + 1} You ${mov > 0 ? 'deposited' : 'withdrew'} €${Math.abs(
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} €${Math.abs(
       mov
     )}`
 );
 console.log(movementsDescriptions);
+*/
+
+// Filter method
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+
+const withdrawels = movements.filter(mov => mov < 0);
+console.log(withdrawels);
+
+// using a for of loop, we can't join/chain methods together with this
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);

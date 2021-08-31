@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Deposit/Withdraw displays
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
@@ -79,3 +80,19 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+// Accounts
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+// const user = 'Steven Thomas Williams'; // username = stw
+
+console.log(createUsernames(accounts));
+console.log(accounts);
