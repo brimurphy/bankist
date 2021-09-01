@@ -92,8 +92,10 @@ currenciesUnique.forEach(function(value, key, map) {
     console.log(`${key}: ${value}`);
 })
 */
+
+// Coding Challenge 1 //
+
 /*
-// Coding Challenge 1
 Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners 
 about their dog's age, and stored the data into an array (one array for each). For 
 now, they are just interested in knowing whether a dog is an adult or a puppy.
@@ -213,8 +215,9 @@ const max = movements.reduce((acc, mov) => {
 console.log(max);
 */
 
+// Coding Challenge 2 //
+
 /*
-// Coding Challenge 2
 Let's go back to Julia and Kate's study about dogs. This time, they want to convert 
 dog ages to human ages and calculate the average age of the dogs in their study.
 Your tasks:
@@ -252,7 +255,7 @@ const data1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const data2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 console.log(data1, data2);
 */
-
+/*
 // The Chaining Method
 
 const totalDepositsUSD = movements
@@ -261,3 +264,47 @@ const totalDepositsUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 
 console.log(totalDepositsUSD);
+*/
+
+// Coding Challenge 3 //
+
+/*
+Rewrite the 'calcAverageHumanAge' function from Challenge #2, but this time 
+as an arrow function, and using chaining!
+Test data:
+
+§ Data 1: [5, 2, 4, 1, 15, 8, 3]
+§ Data 2: [16, 6, 10, 5, 6, 1, 4]
+
+*/
+/*
+const calcAverageHumanAge = dogAges =>
+  dogAges
+    .filter(age => age > 2)
+    .map(age => 16 + age * 4)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+const data1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const data2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+console.log(data1, data2);
+*/
+/*
+// The find method
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+*/
+/*
+console.log(accounts);
+const account = accounts.find(acc => acc.owner === `Jessica Davis`);
+
+// Find statement as a For of loop
+// let accForOf = '';
+// for (const acc of accounts) {
+//   if (acc.owner === 'Jessica Davis') accForOf = acc;
+// }
+// console.log(`Hi ${accForOf.owner}`, accForOf);
+console.log(account);
+*/
