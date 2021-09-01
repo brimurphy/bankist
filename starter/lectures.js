@@ -6,6 +6,35 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+const account5 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account6 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account7 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account8 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accountsNew = [account5, account6, account7, account8];
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const accountPositive = [200, 450, 3000, 70, 1300];
 const euroToUsd = 1.1;
@@ -329,3 +358,34 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// Flat by default goes 1 level deep we can change that
+console.log(arrDeep.flat(2));
+
+const accountMovements = accountsNew.map(acc => acc.movements);
+console.log(accountMovements);
+
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+
+const overalBalance = allMovements.reduce((acc, num) => acc + num, 0);
+console.log(overalBalance);
+
+// Using chaining
+const overalBalanceChain = accountsNew
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, num) => acc + num, 0);
+
+console.log(overalBalanceChain);
+
+// Using flatmap -- flatMap only goes 1 level deep
+const overalBalanceChain2 = accountsNew
+  .flatMap(acc => acc.movements)
+  .reduce((acc, num) => acc + num, 0);
+
+console.log(overalBalanceChain2);
