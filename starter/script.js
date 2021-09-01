@@ -72,7 +72,7 @@ const displayMovements = function (movements) {
       <div class="movements__type movements__type--${type}">
       ${i + 1} ${type}</div>
       
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">€${Math.abs(mov)}</div>
       </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -94,11 +94,10 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 
 // Calculate and display balance of account
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = `€${balance}`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `€${acc.balance}`;
 };
-calcDisplayBalance(account1.movements);
 
 // Calculate and display ins/outs/interest summary in account
 const calcDisplaySummary = function (acc) {
@@ -124,6 +123,15 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `€${interest}`;
 };
 
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+  // Display balance
+  calcDisplayBalance(acc);
+  // display summary
+  calcDisplaySummary(acc);
+};
+
 // Login Eventhandler
 let currentAccount;
 
@@ -142,11 +150,29 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields on login
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
-    // Display movements
-    displayMovements(currentAccount.movements);
-    // Display balance
-    calcDisplayBalance(currentAccount.movements);
-    // display summary
-    calcDisplaySummary(currentAccount);
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
   }
 });
