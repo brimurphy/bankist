@@ -132,9 +132,10 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-// Login Eventhandler
-let currentAccount;
+// Eventhandlers //
 
+// Login
+let currentAccount;
 btnLogin.addEventListener('click', function (e) {
   // Prevent for from submitting
   e.preventDefault();
@@ -155,6 +156,7 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+// Transfer to another account
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
@@ -175,4 +177,23 @@ btnTransfer.addEventListener('click', function (e) {
     // Update UI
     updateUI(currentAccount);
   }
+});
+
+// Delete account
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    // Delete account
+    accounts.splice(index, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
