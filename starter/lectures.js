@@ -338,7 +338,7 @@ const account = accounts.find(acc => acc.owner === `Jessica Davis`);
 // console.log(`Hi ${accForOf.owner}`, accForOf);
 console.log(account);
 */
-
+/*
 console.log(movements);
 // Equality
 console.log(movements.includes(-130));
@@ -389,3 +389,33 @@ const overalBalanceChain2 = accountsNew
   .reduce((acc, num) => acc + num, 0);
 
 console.log(overalBalanceChain2);
+*/
+
+// Sort method (mutates original array)
+
+// Strings
+const owners = ['Jonas', 'Brian', 'Emma', 'Aoibhínn'];
+console.log(owners.sort());
+console.log(owners);
+
+// Numbers
+console.log(movements);
+// console.log(movements.sort()); won't work as expected
+
+// return < 0 - A before B (Keep order)
+// return > 0 - B before A (switch order)
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+// Decending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (b > a) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
