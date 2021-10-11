@@ -564,6 +564,7 @@ recommended portion.
 // recommendedFood = weight ** 0.75 * 28
 */
 
+/*
 // Test Data
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
@@ -620,3 +621,39 @@ const dogsRecFoodSorted = dogs
   .slice()
   .sort((a, b) => a.recommendedFood - b.recommendedFood);
 console.log(dogsRecFoodSorted);
+*/
+
+//  Converting and Checking Numbers
+
+console.log(23 === 23.0);
+
+// Base 10 are numbers from 0 - 9. 1/10 = 0.1
+// Binary base 2 are numbers from 0 - 1
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 === 0.3);
+
+// Conversion
+console.log(Number('23'));
+console.log(+'23');
+
+// Parsing
+console.log(Number.parseInt('30px', 10)); // returns 30
+console.log(Number.parseInt('px30', 10)); // returns NaN, number must come first
+
+console.log(Number.parseFloat('2.5rem'));
+console.log(Number.parseInt('2.5rem'));
+
+console.log(parseFloat('2.5rem')); // will work but not used
+
+// Check if value is NaN
+console.log(Number.isNaN(20)); // false (20 is not a number, it is)
+console.log(Number.isNaN('20')); // false
+console.log(Number.isNaN('twenty')); // false
+console.log(Number.isNaN(+'20X')); // true (X keeps it from being a number)
+console.log(Number.isNaN(23 / 0)); // false (returns infinite)
+
+// Check is value a number (better to check if Number)
+console.log(Number.isFinite(20)); // True
+console.log(Number.isFinite('20')); // false (it's a string not a number)
+console.log(Number.isFinite(+'20X')); // false
+console.log(Number.isFinite(23 / 0)); // false (infinite is not finite)
