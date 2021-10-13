@@ -659,6 +659,7 @@ console.log(Number.isFinite(+'20X')); // false
 console.log(Number.isFinite(23 / 0)); // false (infinite is not finite)
 */
 
+/*
 // Math and Rounding
 
 console.log(Math.sqrt(25)); // square root
@@ -701,3 +702,96 @@ console.log((2.7).toFixed(0)); // returns a string
 console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2)); // returns a number
+*/
+/*
+// The Remainder Operator (%)
+// After dividing 1 number by another what ever is left is returned
+console.log(5 % 2);
+console.log(5 / 2);
+
+console.log(8 % 3);
+console.log(8 / 3);
+
+console.log(6 % 2);
+console.log(6 / 2);
+
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(865));
+console.log(isEven(457835778));
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    // 0, 2, 4, 6
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    // 0, 3, 6, 9
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
+*/
+
+// Working with BigInt
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(456213187486451231234654864843134154846465153848n);
+console.log(BigInt(456213187));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(100056454334564531218641650n * 10064548454684848400n);
+
+const huge = 20289830245687893456894864564n;
+const num = 23;
+// console.log(huge * num); returns error
+console.log(huge * BigInt(num));
+
+console.log(20n > 15); // true
+console.log(20n === 20); // false
+console.log(20n == 20); // true
+console.log(typeof 20n); // bigint
+// console.log(Math.sqrt(16n)); returns error
+
+console.log(huge + ` is REALLY big!!!`);
+
+// Divisions
+console.log(11n / 3n); // will cut off decimal
+console.log(10 / 3);
+
+// Creating Dates
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Oct 13 2021 21:41:51'));
+console.log(new Date('December 24, 2015'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(1983, 01, 10));
+
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142256980000));
+
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
