@@ -796,7 +796,7 @@ console.log(Date.now());
 future.setFullYear(2040);
 console.log(future);
 */
-
+/*
 // Operations with Dates
 
 const future = new Date(2037, 10, 19, 15, 23);
@@ -810,3 +810,4 @@ const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
 const days2 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
 console.log(days1);
 console.log(days2);
+*/
