@@ -811,3 +811,22 @@ const days2 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
 console.log(days1);
 console.log(days2);
 */
+
+// Internationalizing Numbers (Intl)
+
+const num = 3564454.78;
+
+const options = {
+  style: 'currency',
+  unit: 'celsius',
+  currency: 'EUR',
+  // useGrouping: false,
+};
+
+console.log('US: ', new Intl.NumberFormat('en-US', options).format(num));
+console.log('Germany: ', new Intl.NumberFormat('de-DE', options).format(num));
+console.log('Syria: ', new Intl.NumberFormat('ar-SY', options).format(num));
+console.log(
+  navigator.language,
+  new Intl.NumberFormat(navigator.language, options).format(num)
+);
