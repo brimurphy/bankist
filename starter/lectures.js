@@ -831,8 +831,9 @@ console.log(
   new Intl.NumberFormat(navigator.language, options).format(num)
 );
 */
-
+/*
 // Timers
+
 // setTimout
 const ingredients = [`olives`, `spinach`];
 const pizzaTimer = setTimeout(
@@ -850,3 +851,4 @@ setInterval(function () {
   const currentTime = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
   console.log(currentTime);
 }, 1000);
+*/
